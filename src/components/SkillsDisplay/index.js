@@ -1,7 +1,13 @@
-import { DEFAULT_MODIFIER_ATTRIBUTE_VALUE, SKILL_LIST } from "../../consts";
+import {
+  DEFAULT_MODIFIER_ATTRIBUTE_VALUE,
+  DEFAULT_SKILL_MODIFIER_VALUE,
+  DEFAULT_SKILL_POINT_VALUE,
+  SKILL_LIST,
+} from "../../consts";
 import React, { useCallback, useEffect, useState } from "react";
 import "./skillsDisplay.css";
 
+// Creates an object with the keys as the skill names and assigns an initial value of zero to all skills to start.
 const generateSkillValues = () => {
   let skillValues = {};
   SKILL_LIST.map((skillSet) => {
@@ -13,17 +19,18 @@ const generateSkillValues = () => {
 export const SkillsDisplay = ({ attrValues }) => {
   const [skillPoints, setSkillPoints] = useState(10);
   const [usedSkillPoints, setUsedSkillPoints] = useState(0);
+  const [skillValues, setSkillValues] = useState(generateSkillValues());
 
   useEffect(() => {
+    // Check if modifier key has been populated and allows async rendering. Calculate the skill points based on intelligence modifier value
     attrValues[DEFAULT_MODIFIER_ATTRIBUTE_VALUE]?.modifier !== undefined &&
       setSkillPoints(
-        10 +
-          4 * attrValues[DEFAULT_MODIFIER_ATTRIBUTE_VALUE].modifier -
+        DEFAULT_SKILL_POINT_VALUE +
+          DEFAULT_SKILL_MODIFIER_VALUE *
+            attrValues[DEFAULT_MODIFIER_ATTRIBUTE_VALUE].modifier -
           usedSkillPoints,
       );
   }, [attrValues, usedSkillPoints]);
-
-  const [skillValues, setSkillValues] = useState(generateSkillValues());
 
   const onClickAdd = useCallback(
     (skillName) => {

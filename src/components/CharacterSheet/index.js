@@ -10,6 +10,8 @@ import {
 import "./characterSheet.css";
 import { SkillsDisplay } from "../SkillsDisplay";
 
+// Creates an object with the attributes as keys and the value being another object containing the attribute value and
+// its modifier value. Initializes their starting values.
 const generateAttrValues = () => {
   let attrValues = {};
   ATTRIBUTE_LIST.map((attr) => {

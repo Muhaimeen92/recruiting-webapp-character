@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { CLASS_LIST } from "../../consts";
 import "./classDisplay.css";
 
+// Determines if all of a character's attributes meet the criteria for it to me part of a particular class
 const isCharPartOfClass = (className, charAttributes) => {
   for (let attr in charAttributes) {
     if (charAttributes[attr].value < CLASS_LIST[className][attr]) {

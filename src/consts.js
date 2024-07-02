@@ -60,3 +60,5 @@ export const STARTING_MODIFIER_VALUE = 0;
 export const MAX_ATTRIBUTE_VALUE = 20;
 export const MIN_ATTRIBUTE_VALUE = 7;
 export const DEFAULT_MODIFIER_ATTRIBUTE_VALUE = "Intelligence";
+export const DEFAULT_SKILL_POINT_VALUE = 10;
+export const DEFAULT_SKILL_MODIFIER_VALUE = 4;
