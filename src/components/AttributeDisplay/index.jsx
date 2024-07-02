@@ -30,7 +30,7 @@ export const AttributeDisplay = ({ attrValues, setAttrValues }) => {
 
   const onClickSubtract = useCallback(
     (attr) => {
-      if (attrValues[attr].value < MIN_ATTRIBUTE_VALUE) {
+      if (attrValues[attr].value > MIN_ATTRIBUTE_VALUE) {
         setAttrValues((prevState) => ({
           ...prevState,
           [attr]: {
