@@ -34,7 +34,7 @@ export const SkillsDisplay = ({ attrValues }) => {
         }));
         setUsedSkillPoints((prevState) => prevState + 1);
       } else {
-        alert("You do not have sufficent skill points left");
+        alert("You do not have sufficient skill points left");
       }
     },
     [skillPoints],

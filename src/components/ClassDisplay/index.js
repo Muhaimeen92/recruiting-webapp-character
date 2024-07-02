@@ -16,13 +16,6 @@ export const ClassDisplay = ({
   setShowClassAttributes,
   attrValues,
 }) => {
-  const onClickClassTitle = useCallback(
-    (className) => {
-      setClassName(className);
-      setShowClassAttributes(true);
-    },
-    [setClassName, setShowClassAttributes],
-  );
   const [fontColor, setFontColor] = useState(() => {
     let fontMap = {};
     Object.keys(CLASS_LIST).map((className) => {
@@ -40,6 +33,14 @@ export const ClassDisplay = ({
       }
     });
   }, [attrValues]);
+
+  const onClickClassTitle = useCallback(
+    (className) => {
+      setClassName(className);
+      setShowClassAttributes(true);
+    },
+    [setClassName, setShowClassAttributes],
+  );
 
   return (
     <div className={"container"}>
